@@ -10,13 +10,14 @@ class OpengraphWebpackPlugin {
     this.options = options
   }
 
-  apply = compiler =>
+  apply (compiler) {
     compiler.plugin('compilation', compilation =>
       compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
-        const filesToInclude = map(this.options, format).join('\n')
+        const filesToInclude = this.options.map(format).join('\n')
         htmlPluginData.html = htmlPluginData.html.replace('</head>', filesToInclude + '\n</head>')
         callback(null, htmlPluginData)
-      }));
+      }))
+  }
 }
 
 module.exports = OpengraphWebpackPlugin

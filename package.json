@@ -2,9 +2,9 @@
   "name": "opengraph-html-webpack-plugin",
   "version": "1.0.0",
   "description": "Let wepback generate all your opengraph informations for you",
-  "main": "build/index.js",
+  "main": "source/index.js",
   "files": [
-    "build/index.js"
+    "source/index.js"
   ],
   "bugs": {
     "url": "https://github.com/jdrouet/opengraph-html-webpack-plugin/issues"
@@ -13,10 +13,8 @@
   "scripts": {
     "lint": "eslint source",
     "prebuild": "npm run lint",
-    "build": "babel --out-dir build source",
-    "test": "mocha --compilers js:babel-core/register",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --compilers js:babel-core/register --colors --reporter spec test/",
-    "watch": "watch \"npm run build\" source"
+    "test": "mocha",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --colors --reporter spec test/"
   },
   "keywords": [
     "webpack",
@@ -26,18 +24,11 @@
   "author": "Jeremie Drouet <jeremie.drouet@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "eslint": "^5.0.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-core": "^6.23.1",
-    "babel-eslint": "^8.2.5",
-    "babel-plugin-transform-class-properties": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-register": "^6.23.0",
     "chai": "^4.1.2",
-    "eslint": "^5.0.1",
-    "istanbul": "^1.0.0-alpha.2",
+    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "sinon": "^6.0.1",
     "watch": "^1.0.1"
